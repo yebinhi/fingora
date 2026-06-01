@@ -1,1376 +1,535 @@
-\# Fingora Product Requirements Document (PRD)
+# Fingora Product Requirements Document (PRD)
 
+**Version:** 1.0
+**Date:** June 2026
+**Owner:** Bin Ye
 
+---
 
-Version: 1.1
+# 1. Product Overview
 
+## Product Name
 
+Fingora
 
-Date: June 2026
+## Vision
 
+Fingora is an AI-powered piano learning platform that transforms sheet music into an interactive piano tutoring experience.
 
+Users can upload PDF sheet music and instantly receive:
 
-Owner: Bin Ye
+* Automatic sheet music recognition
+* Interactive keyboard guidance
+* AI-generated fingering suggestions
+* Virtual hand demonstrations
+* Real-time performance feedback using the device microphone
 
+The goal is to make any piano score instantly learnable without requiring a human tutor.
 
+---
 
-Status: Draft
+# 2. Problem Statement
 
+Learning piano from traditional sheet music is difficult because:
 
+* Beginners cannot easily identify notes.
+* Most sheet music does not include fingering.
+* Users do not know if they are playing correctly.
+* Piano lessons are expensive.
+* Existing apps offer limited music libraries.
 
-\---
+Users often find sheet music online but have no efficient way to practice it interactively.
 
+Fingora solves this by allowing users to upload any PDF score and convert it into an AI-guided learning experience.
 
+---
 
-\# 1. Product Vision
+# 3. Target Users
 
+## Beginner Pianists
 
+Users learning piano for the first time.
 
-Fingora is an AI-powered piano learning platform that transforms traditional sheet music into an interactive learning experience.
+### Needs
 
+* Note guidance
+* Fingering assistance
+* Slow practice mode
 
+---
+
+## Intermediate Pianists
+
+Users capable of reading sheet music but seeking faster learning.
+
+### Needs
+
+* Fingering optimisation
+* Mistake detection
+* Practice tracking
+
+---
+
+## Piano Teachers
+
+Teachers wanting to provide students with guided practice materials.
+
+### Needs
+
+* Shareable practice content
+* Progress monitoring
+
+---
+
+# 4. Business Model
+
+## Freemium
+
+### Free Features
+
+* Account registration
+* Public tutorials
+* Beginner lessons
+* Limited practice features
+
+### Paid Features
+
+Users purchase Credits.
+
+Credits are consumed when processing uploaded PDF scores.
+
+### Example Packages
+
+| Package  | Credits |
+| -------- | ------- |
+| Starter  | 5       |
+| Standard | 10      |
+| Premium  | 20      |
+
+### Consumption
+
+* 1 PDF Upload = 1 Credit
+
+---
+
+# 5. Navigation Structure
+
+The application contains three main tabs.
+
+## Public
+
+Contains:
+
+* Free tutorials
+* Public piano lessons
+* Premium song library
 
 Users can:
 
+* Browse songs
+* Search songs
+* Add songs to My List
+* Practice songs
 
+---
 
-\- Learn from free public tutorials
-
-\- Purchase premium piano lessons
-
-\- Upload their own PDF sheet music
-
-\- Automatically generate fingering suggestions
-
-\- Follow virtual hand demonstrations
-
-\- Practice with real-time performance feedback
-
-\- Track learning progress
-
-
-
-The goal is to make any piano score instantly playable and teachable.
-
-
-
-\---
-
-
-
-\# 2. Core Value Proposition
-
-
-
-Traditional piano learning requires:
-
-
-
-\- Reading sheet music
-
-\- Understanding rhythm
-
-\- Determining fingering
-
-\- Receiving teacher feedback
-
-
-
-Fingora automates these tasks using AI.
-
-
-
-Input:
-
-
-
-PDF Sheet Music
-
-
-
-Output:
-
-
-
-Interactive Piano Lesson
-
-
-
-Including:
-
-
-
-\- Piano keyboard guidance
-
-\- Fingering suggestions
-
-\- Virtual hand animations
-
-\- Audio validation
-
-\- Progress tracking
-
-
-
-\---
-
-
-
-\# 3. User Types
-
-
-
-\## Beginner
-
-
-
-Needs:
-
-
-
-\- Note guidance
-
-\- Keyboard guidance
-
-\- Fingering assistance
-
-
-
-\## Intermediate
-
-
-
-Needs:
-
-
-
-\- Faster learning
-
-\- Difficult piece practice
-
-\- Error correction
-
-
-
-\## Piano Teachers
-
-
-
-Needs:
-
-
-
-\- Assign practice materials
-
-\- Monitor progress
-
-
-
-Future feature.
-
-
-
-\---
-
-
-
-\# 4. Navigation Structure
-
-
-
-Bottom Navigation Bar
-
-
-
-1\. Public
-
-2\. Private
-
-3\. My List
-
-4\. Profile
-
-
-
-\---
-
-
-
-\# 5. Public Tab
-
-
-
-Purpose:
-
-
-
-Provide free and commercial piano content.
-
-
-
-\## Content Types
-
-
-
-\### Free Tutorials
-
-
-
-Examples:
-
-
-
-\- Piano Basics
-
-\- Reading Sheet Music
-
-\- First Scale
-
-\- First Song
-
-
-
-\### Public Songs
-
-
-
-Examples:
-
-
-
-\- Fur Elise
-
-\- Canon in D
-
-\- Moonlight Sonata
-
-
-
-\### Premium Lessons
-
-
-
-Purchased using Credits.
-
-
-
-\---
-
-
-
-\## User Actions
-
-
-
-\- Browse
-
-\- Search
-
-\- Filter by difficulty
-
-\- Add to My List
-
-\- Start Practice
-
-\- Purchase Content
-
-
-
-\---
-
-
-
-\# 6. Private Tab
-
-
-
-Purpose:
-
-
-
-Manage user-generated content.
-
-
-
-\---
-
-
-
-\## Upload Flow
-
-
-
-Upload PDF
-
-
-
-↓
-
-
-
-Validate File
-
-
-
-↓
-
-
-
-Check Credits
-
-
-
-↓
-
-
-
-Deduct Credits
-
-
-
-↓
-
-
-
-Create Processing Job
-
-
-
-↓
-
-
-
-OMR Processing
-
-
-
-↓
-
-
-
-Generate Lesson
-
-
-
-↓
-
-
-
-Available for Practice
-
-
-
-\---
-
-
-
-\## User Actions
-
-
-
-\- Upload PDF
-
-\- View processing status
-
-\- View generated lessons
-
-\- Delete lessons
-
-\- Add to My List
-
-
-
-\---
-
-
-
-\# 7. My List
-
-
-
-Purpose:
-
-
-
-Centralised practice library.
-
-
+## Private
 
 Contains:
 
+* User uploaded PDF scores
+* Generated practice content
 
+Users can:
 
-\- Saved Public Content
+* Upload PDF
+* Monitor processing status
+* Open generated lessons
+* Delete lessons
 
-\- Saved Private Content
+---
 
+## My List
 
+Personal collection of learning content.
 
-\---
+Users can:
 
+* Save Public content
+* Save Private content
+* Continue learning
+* View progress
 
+---
 
-\## User Actions
+# 6. User Flow
 
+## Public Content
 
+Register
 
-\- Start Practice
+→ Browse Public Library
 
-\- Remove Item
+→ Select Tutorial
 
-\- View Progress
+→ Practice
 
-\- Continue Learning
+→ Add to My List
 
+---
 
+## Private Content
 
-\---
+Register
 
+→ Purchase Credits
 
+→ Upload PDF
 
-\# 8. Profile
+→ Consume 1 Credit
 
+→ OMR Processing
 
+→ Generate Practice Content
 
-Contains:
+→ Add to Private Library
 
+→ Practice
 
+---
 
-\- User Profile
+# 7. Core Features
 
-\- Credits Balance
+## User Authentication
 
-\- Purchase History
+### Features
 
-\- Practice Statistics
+* Email registration
+* Email verification
+* Login
+* Logout
+* Password reset
 
-\- Settings
+### Technology
 
+AWS Cognito
 
+---
 
-\---
+## PDF Upload
 
+### Supported Formats
 
+* PDF
+* JPEG
+* PNG
 
-\# 9. Credits System
+### Process
 
+Upload
 
+→ Validation
 
-Credits are the platform currency.
+→ Credit deduction
 
+→ Processing queue
 
+→ OMR recognition
 
-\---
+→ Lesson generation
 
+---
 
+## Credit System
 
-\## Purchase Packages
+Users purchase credits through in-app purchases.
 
+Credits are required for:
 
+* PDF processing
 
-| Package | Credits |
+Users can view:
 
-|----------|----------|
+* Current balance
+* Purchase history
+* Credit consumption history
 
-| Starter | 5 |
+---
 
-| Standard | 10 |
+# 8. OMR Processing
 
-| Premium | 20 |
+## Objective
 
-| Professional | 50 |
+Convert uploaded sheet music into machine-readable music data.
 
+## Technology
 
+Audiveris
 
-\---
+## Input
 
+* PDF
+* Scanned sheet music
+* Images
 
+## Output
 
-\## Credit Consumption
+* MusicXML
+* MIDI
 
-
-
-| Action | Cost |
-
-|----------|----------|
-
-| Upload PDF | 1 Credit |
-
-| Premium Lesson | Configurable |
-
-
-
-\---
-
-
-
-\# 10. Lesson Processing Pipeline
-
-
+## Processing Pipeline
 
 PDF Upload
 
+→ S3 Storage
 
+→ OMR Recognition
 
-↓
+→ MusicXML Generation
 
+→ Music Analysis
 
+→ Lesson Generation
 
-Store in S3
+→ User Library
 
+---
 
+# 9. Practice Engine
 
-↓
+## Sheet Music View
 
+Features:
 
+* Measure highlighting
+* Current note indication
+* Auto scrolling
 
-Create Job
+---
 
+## Piano Keyboard View
 
+Features:
 
-↓
+* Full keyboard
+* Highlight active notes
+* Chord display
+* Tempo tracking
 
+---
 
+## Fingering Guidance
 
-Audiveris OMR
+Display recommended fingers.
 
+### Finger Numbers
 
+| Finger        | Number |
+| ------------- | ------ |
+| Thumb         | 1      |
+| Index         | 2      |
+| Middle        | 3      |
+| Ring          | 4      |
+| Little Finger | 5      |
 
-↓
+Supports:
 
+* Left hand
+* Right hand
 
+---
 
-MusicXML
+## Virtual Hands
 
+### Version 1
 
+2D animated hands.
 
-↓
+### Future Version
 
+3D animated hands.
 
+Functions:
 
-Music Analysis
+* Hand position guidance
+* Finger movement animation
 
+---
 
+## Audio Validation
 
-↓
-
-
-
-Fingering Generation
-
-
-
-↓
-
-
-
-Practice Lesson Generation
-
-
-
-↓
-
-
-
-Store Results
-
-
-
-↓
-
-
-
-Ready For User
-
-
-
-\---
-
-
-
-\# 11. OMR Requirements
-
-
-
-Technology:
-
-
-
-Audiveris
-
-
-
-\---
-
-
-
-\## Inputs
-
-
-
-\- PDF
-
-\- PNG
-
-\- JPG
-
-
-
-\---
-
-
-
-\## Outputs
-
-
-
-\- MusicXML
-
-\- MIDI
-
-
-
-\---
-
-
-
-\## Supported Music
-
-
-
-Version 1:
-
-
-
-\- Piano scores only
-
-\- Treble clef
-
-\- Bass clef
-
-\- Multi-page PDF
-
-
-
-\---
-
-
-
-\# 12. Fingering Engine
-
-
-
-Purpose:
-
-
-
-Generate playable finger recommendations.
-
-
-
-\---
-
-
-
-\## Inputs
-
-
-
-MusicXML
-
-
-
-\---
-
-
-
-\## Outputs
-
-
-
-For each note:
-
-
-
-\- Hand assignment
-
-\- Finger number
-
-
-
-Example:
-
-
-
-C4 → Right Hand → Finger 1
-
-
-
-E4 → Right Hand → Finger 3
-
-
-
-\---
-
-
-
-\## Future
-
-
-
-AI-assisted fingering optimisation.
-
-
-
-\---
-
-
-
-\# 13. Practice Engine
-
-
-
-Core feature of the platform.
-
-
-
-\---
-
-
-
-\## Sheet Music Panel
-
-
-
-Displays:
-
-
-
-\- Original score
-
-\- Current measure
-
-\- Current note
-
-\- Auto-scroll
-
-
-
-\---
-
-
-
-\## Piano Keyboard Panel
-
-
-
-Displays:
-
-
-
-\- 88-key keyboard
-
-\- Highlighted notes
-
-\- Chords
-
-\- Upcoming notes
-
-
-
-\---
-
-
-
-\## Fingering Overlay
-
-
-
-Displays:
-
-
-
-\- Left hand finger numbers
-
-\- Right hand finger numbers
-
-
-
-\---
-
-
-
-\## Virtual Hands
-
-
-
-Version 1:
-
-
-
-2D hand animation
-
-
-
-Displays:
-
-
-
-\- Hand position
-
-\- Finger placement
-
-
-
-Future:
-
-
-
-3D hand model
-
-
-
-\---
-
-
-
-\# 14. Audio Validation Engine
-
-
-
-Purpose:
-
-
-
-Determine whether the user plays correctly.
-
-
-
-\---
-
-
-
-\## Technology
-
-
+### Technology
 
 AVFoundation
 
+### Features
 
+* Detect played notes
+* Detect wrong notes
+* Detect missed notes
+* Detect timing errors
 
-Pitch Detection
+### Output
 
+* Accuracy score
+* Error report
+* Practice summary
 
+---
 
-FFT Analysis
+# 10. Progress Tracking
 
+Store:
 
+* Practice time
+* Completed lessons
+* Accuracy score
+* Best score
+* Last played date
 
-\---
+Display:
 
+* Daily progress
+* Weekly progress
+* Learning streak
 
+---
 
-\## Detect
+# 11. Non-Functional Requirements
 
+## Performance
 
+### PDF Processing
 
-\- Correct note
+Target:
 
-\- Wrong note
+* Less than 60 seconds
 
-\- Missed note
+### Lesson Loading
 
-\- Extra note
+Target:
 
-\- Early timing
+* Less than 3 seconds
 
-\- Late timing
+---
 
+## Security
 
+### Authentication
 
-\---
+AWS Cognito
 
+### Storage
 
+Private S3 buckets
 
-\## Generate
+### Communication
 
+HTTPS only
 
+---
 
-Practice Score
+## Scalability
 
+Support:
 
+* 10,000+ users
+* 100,000+ scores
+* Cloud-based processing
 
-Mistake Report
+---
 
+# 12. Technology Stack
 
+## iOS
 
-Accuracy Percentage
+* Swift
+* SwiftUI
+* AVFoundation
+* PDFKit
 
+## Backend
 
+* AWS API Gateway
+* AWS Lambda
+* DynamoDB
+* S3
+* Cognito
 
-\---
+## OMR Service
 
+* Audiveris
+* Java
 
+## Infrastructure
 
-\# 15. Practice Scoring
+* AWS CDK
+* TypeScript
 
+---
 
+# 13. MVP Scope
 
-\## Accuracy Score
+## Included
 
+* Login
+* Public Library
+* Private Library
+* My List
+* PDF Upload
+* Credit System
+* OMR Processing
+* Piano Keyboard Practice
+* Audio Validation
 
+## Excluded
 
-Based on:
+* Social Features
+* Teacher Dashboard
+* AI Chat Tutor
+* Multi-Instrument Support
+* Marketplace
 
+---
 
+# 14. Future Roadmap
 
-\- Correct notes
+## Version 2
 
-\- Wrong notes
+* Advanced AI fingering generation
+* Teacher portal
+* Performance analytics
+* Cloud sync
 
-\- Missed notes
+## Version 3
 
+* Guitar support
+* Violin support
+* AI practice coach
+* Community features
+* Music marketplace
 
+---
 
-Range:
+# 15. Success Metrics
 
+## Business Metrics
 
+* User registration rate
+* Credit purchase rate
+* PDF upload conversion rate
+* Revenue per user
 
-0 - 100
+## Product Metrics
 
+* Daily active users
+* Weekly active users
+* Practice completion rate
+* User retention rate
 
+## Technical Metrics
 
-\---
-
-
-
-\## Timing Score
-
-
-
-Based on:
-
-
-
-\- Rhythm accuracy
-
-\- Timing consistency
-
-
-
-Range:
-
-
-
-0 - 100
-
-
-
-\---
-
-
-
-\## Overall Score
-
-
-
-Weighted combination:
-
-
-
-Accuracy
-
-
-
-Timing
-
-
-
-Completion
-
-
-
-\---
-
-
-
-\# 16. Progress Tracking
-
-
-
-Track:
-
-
-
-\- Total practice time
-
-\- Lessons completed
-
-\- Best scores
-
-\- Last practice date
-
-\- Consecutive practice days
-
-
-
-\---
-
-
-
-\# 17. User Notifications
-
-
-
-Push notifications.
-
-
-
-Examples:
-
-
-
-\- Lesson processed
-
-\- Credits low
-
-\- Practice reminder
-
-
-
-\---
-
-
-
-\# 18. Technology Stack
-
-
-
-\## Mobile
-
-
-
-Swift
-
-
-
-SwiftUI
-
-
-
-AVFoundation
-
-
-
-PDFKit
-
-
-
-\---
-
-
-
-\## Backend
-
-
-
-AWS API Gateway
-
-
-
-AWS Lambda
-
-
-
-DynamoDB
-
-
-
-S3
-
-
-
-Cognito
-
-
-
-\---
-
-
-
-\## Processing
-
-
-
-Audiveris
-
-
-
-Java
-
-
-
-Python
-
-
-
-\---
-
-
-
-\## Infrastructure
-
-
-
-AWS CDK
-
-
-
-TypeScript
-
-
-
-\---
-
-
-
-\# 19. Database Entities
-
-
-
-\## Users
-
-
-
-User profile.
-
-
-
-\---
-
-
-
-\## Credits
-
-
-
-User credit balance.
-
-
-
-\---
-
-
-
-\## PublicLessons
-
-
-
-Platform content.
-
-
-
-\---
-
-
-
-\## PrivateLessons
-
-
-
-User generated lessons.
-
-
-
-\---
-
-
-
-\## UploadJobs
-
-
-
-Processing jobs.
-
-
-
-\---
-
-
-
-\## MyList
-
-
-
-Saved lessons.
-
-
-
-\---
-
-
-
-\## PracticeSessions
-
-
-
-Practice records.
-
-
-
-\---
-
-
-
-\## Purchases
-
-
-
-Credit purchases.
-
-
-
-\---
-
-
-
-\# 20. MVP Scope
-
-
-
-\## Included
-
-
-
-\- Email Login
-
-\- Public Library
-
-\- Private Library
-
-\- My List
-
-\- Credits System
-
-\- PDF Upload
-
-\- OMR Processing
-
-\- Fingering Generation
-
-\- Piano Keyboard
-
-\- Virtual Hands (2D)
-
-\- Audio Validation
-
-\- Practice Scoring
-
-
-
-\---
-
-
-
-\## Excluded
-
-
-
-\- Teacher Dashboard
-
-\- Community Features
-
-\- Multiplayer
-
-\- Marketplace
-
-\- AI Chat Teacher
-
-\- Multi-Instrument Support
-
-
-
-\---
-
-
-
-\# 21. Future Roadmap
-
-
-
-\## V2
-
-
-
-\- AI Fingering Optimisation
-
-\- Teacher Portal
-
-\- Cloud Sync
-
-\- Practice Analytics
-
-
-
-\## V3
-
-
-
-\- Guitar Support
-
-\- Violin Support
-
-\- AI Piano Coach
-
-\- Music Marketplace
-
-\- Social Features
-
-
-
-\---
-
-
-
-\# 22. Success Metrics
-
-
-
-Business:
-
-
-
-\- Registrations
-
-\- Credit Purchases
-
-\- Revenue
-
-
-
-Product:
-
-
-
-\- Daily Active Users
-
-\- Weekly Active Users
-
-\- Retention Rate
-
-\- Practice Completion Rate
-
-
-
-Technical:
-
-
-
-\- OMR Success Rate
-
-\- Average Processing Time
-
-\- Crash-Free Sessions
-
-\- API Response Time
-
+* OMR success rate
+* Processing time
+* App crash rate
+* API response time
