@@ -1,535 +1,488 @@
-# Fingora Product Requirements Document (PRD)
+# Fingora Product Requirements Document PRD
 
-**Version:** 1.0
-**Date:** June 2026
-**Owner:** Bin Ye
-
----
-
-# 1. Product Overview
-
-## Product Name
-
-Fingora
-
-## Vision
-
-Fingora is an AI-powered piano learning platform that transforms sheet music into an interactive piano tutoring experience.
-
-Users can upload PDF sheet music and instantly receive:
-
-* Automatic sheet music recognition
-* Interactive keyboard guidance
-* AI-generated fingering suggestions
-* Virtual hand demonstrations
-* Real-time performance feedback using the device microphone
-
-The goal is to make any piano score instantly learnable without requiring a human tutor.
+**Version:** 1.1  
+**Date:** June 2026  
+**Owner:** Bin Ye  
 
 ---
 
-# 2. Problem Statement
+# 1. App Name
 
-Learning piano from traditional sheet music is difficult because:
+## Fingora
 
-* Beginners cannot easily identify notes.
-* Most sheet music does not include fingering.
-* Users do not know if they are playing correctly.
-* Piano lessons are expensive.
-* Existing apps offer limited music libraries.
+Fingora is an AI-powered piano practice app that turns sheet music into an interactive guided piano learning experience.
 
-Users often find sheet music online but have no efficient way to practice it interactively.
+Users can either:
 
-Fingora solves this by allowing users to upload any PDF score and convert it into an AI-guided learning experience.
+1. Buy ready-made piano practice programs from the Fingora library.
+2. Upload their own sheet music and generate a personalised practice program.
+
+The practice experience should be similar in style to Flowkey: the app plays a short section first, then the user practices the same section while the app listens through the microphone, checks correctness, gives feedback, and moves to the next section.
+
+---
+
+# 2. Goal
+
+The goal of Fingora is to make piano practice easier, more interactive, and more personalised.
+
+Many piano learners can find sheet music online, but they do not know how to practise it properly. They may struggle with note reading, rhythm, fingering, hand position, and recognising mistakes.
+
+Fingora solves this by converting sheet music into a structured piano practice program with:
+
+- Sheet music display
+- Short section-by-section practice
+- App playback before user practice
+- Microphone-based correctness detection
+- Virtual piano keyboard
+- Highlighted keys
+- Fingering suggestions
+- Virtual hand guidance
+- Progress tracking
+- Paid practice programs
+- User-generated lessons from uploaded sheet music
 
 ---
 
 # 3. Target Users
 
-## Beginner Pianists
+## 3.1 Beginner Piano Learners
 
-Users learning piano for the first time.
-
-### Needs
-
-* Note guidance
-* Fingering assistance
-* Slow practice mode
-
----
-
-## Intermediate Pianists
-
-Users capable of reading sheet music but seeking faster learning.
+Users who are learning piano for the first time.
 
 ### Needs
 
-* Fingering optimisation
-* Mistake detection
-* Practice tracking
+- Easy note guidance
+- Slow practice mode
+- Highlighted piano keys
+- Simple fingering suggestions
+- Mistake detection
+- Repeat-until-correct practice
 
 ---
 
-## Piano Teachers
+## 3.2 Intermediate Piano Learners
 
-Teachers wanting to provide students with guided practice materials.
+Users who can already read some sheet music but want to learn pieces faster.
 
 ### Needs
 
-* Shareable practice content
-* Progress monitoring
+- Section-by-section practice
+- Fingering optimisation
+- Timing feedback
+- Wrong note detection
+- Progress tracking
+- Ability to upload their own music sheets
 
 ---
 
-# 4. Business Model
+## 3.3 Piano Teachers
 
-## Freemium
+Teachers who want to provide structured practice materials to students.
 
-### Free Features
+### Needs
 
-* Account registration
-* Public tutorials
-* Beginner lessons
-* Limited practice features
-
-### Paid Features
-
-Users purchase Credits.
-
-Credits are consumed when processing uploaded PDF scores.
-
-### Example Packages
-
-| Package  | Credits |
-| -------- | ------- |
-| Starter  | 5       |
-| Standard | 10      |
-| Premium  | 20      |
-
-### Consumption
-
-* 1 PDF Upload = 1 Credit
+- Ready-made guided practice programs
+- Ability to recommend practice pieces
+- Future ability to create or assign practice programs
+- Future student progress monitoring
 
 ---
 
-# 5. Navigation Structure
+## 3.4 Parents of Young Learners
 
-The application contains three main tabs.
+Parents who want children to practise piano at home without always needing a teacher present.
 
-## Public
+### Needs
 
-Contains:
+- Simple guided practice
+- Clear correctness feedback
+- Engaging visual piano keyboard
+- Progress history
+- Paid beginner courses
 
-* Free tutorials
-* Public piano lessons
-* Premium song library
+---
+
+# 4. Problem Statement
+
+Traditional piano learning has several problems:
+
+- Sheet music is difficult for beginners to read.
+- Most sheet music does not include detailed fingering.
+- Users do not always know whether they are playing correctly.
+- Practising a whole piece at once can feel overwhelming.
+- Human piano lessons can be expensive.
+- Existing piano apps usually only support their own music library.
+- Users may already have their own sheet music but cannot easily turn it into an interactive lesson.
+
+Fingora addresses these problems by transforming sheet music into guided, interactive, section-by-section piano practice.
+
+---
+
+# 5. Product Concept
+
+Fingora has two main types of practice content.
+
+## 5.1 Native Practice Programs
+
+These are ready-made practice programs created by Fingora.
 
 Users can:
 
-* Browse songs
-* Search songs
-* Add songs to My List
-* Practice songs
+- Browse the Fingora practice library
+- Preview available practice programs
+- Purchase individual courses or practice programs
+- Download purchased programs to the app
+- Practise offline where possible
+- Save programs to My List
+
+Examples:
+
+- Beginner Piano Course Level 1
+- Easy Classical Piano Pieces
+- Children’s First Piano Songs
+- Flowkey-style song practice program
+- Left-hand and right-hand coordination exercises
 
 ---
 
-## Private
+## 5.2 User-Generated Practice Programs
 
-Contains:
+Users can upload their own sheet music.
 
-* User uploaded PDF scores
-* Generated practice content
+The app uploads the sheet music to the server. The server processes the file, recognises the notes, generates a structured practice program, and sends the generated content back to the app.
 
-Users can:
+Users can upload:
 
-* Upload PDF
-* Monitor processing status
-* Open generated lessons
-* Delete lessons
+- PDF sheet music
+- Scanned sheet music images
+- JPEG files
+- PNG files
 
----
+The generated practice program should include:
 
-## My List
-
-Personal collection of learning content.
-
-Users can:
-
-* Save Public content
-* Save Private content
-* Continue learning
-* View progress
+- Recognised music score
+- MusicXML or MIDI representation
+- Section-by-section lesson structure
+- App playback audio
+- Virtual piano key highlights
+- Fingering suggestions
+- Practice segments
+- Microphone-based correctness checking
 
 ---
 
-# 6. User Flow
+# 6. MVP Features
 
-## Public Content
+The MVP should focus on the smallest usable product.
 
-Register
+## 6.1 Included in MVP
 
-→ Browse Public Library
+### User Account
 
-→ Select Tutorial
+- Email registration
+- Email verification
+- Login
+- Logout
+- Password reset
 
-→ Practice
+### Practice Library
 
-→ Add to My List
+- Browse public or free programs
+- Browse paid practice programs
+- View program details
+- Purchase a practice program
+- Download purchased practice program
+- Add program to My List
 
----
+### User Upload
 
-## Private Content
+- Upload PDF, JPEG, or PNG sheet music
+- Server-side processing
+- Generate practice program from uploaded music sheet
+- Show processing status
+- Add generated program to user’s private library
 
-Register
+### Payment
 
-→ Purchase Credits
+- Purchase existing practice programs
+- Pay for uploaded sheet music processing
+- View purchase history
+- View owned programs
 
-→ Upload PDF
+### My List
 
-→ Consume 1 Credit
+- Save favourite programs
+- Save generated programs
+- Continue learning from last position
+- Remove items from My List
 
-→ OMR Processing
+### Practice Player
 
-→ Generate Practice Content
-
-→ Add to Private Library
-
-→ Practice
-
----
-
-# 7. Core Features
-
-## User Authentication
-
-### Features
-
-* Email registration
-* Email verification
-* Login
-* Logout
-* Password reset
-
-### Technology
-
-AWS Cognito
-
----
-
-## PDF Upload
-
-### Supported Formats
-
-* PDF
-* JPEG
-* PNG
-
-### Process
-
-Upload
-
-→ Validation
-
-→ Credit deduction
-
-→ Processing queue
-
-→ OMR recognition
-
-→ Lesson generation
+- Display sheet music
+- Play a short section first
+- Show highlighted piano keys
+- Show fingering suggestions
+- Show virtual hand or finger guidance
+- Listen to user practice through microphone
+- Detect correct and incorrect notes
+- Repeat section if user plays incorrectly
+- Move to next section after successful practice
+- Track progress and accuracy
 
 ---
 
-## Credit System
+## 6.2 Excluded from MVP
 
-Users purchase credits through in-app purchases.
+These features should not be built in the first version:
 
-Credits are required for:
-
-* PDF processing
-
-Users can view:
-
-* Current balance
-* Purchase history
-* Credit consumption history
-
----
-
-# 8. OMR Processing
-
-## Objective
-
-Convert uploaded sheet music into machine-readable music data.
-
-## Technology
-
-Audiveris
-
-## Input
-
-* PDF
-* Scanned sheet music
-* Images
-
-## Output
-
-* MusicXML
-* MIDI
-
-## Processing Pipeline
-
-PDF Upload
-
-→ S3 Storage
-
-→ OMR Recognition
-
-→ MusicXML Generation
-
-→ Music Analysis
-
-→ Lesson Generation
-
-→ User Library
+- Teacher dashboard
+- Student management
+- Social features
+- Public user profiles
+- Community comments
+- Full marketplace for third-party teachers
+- Multi-instrument support
+- Advanced 3D hand animation
+- AI chat tutor
+- Real-time multiplayer practice
 
 ---
 
-# 9. Practice Engine
+# 7. User Flow
 
-## Sheet Music View
+## 7.1 New User Registration Flow
+
+Open app  
+→ Register with email  
+→ Verify email  
+→ Login  
+→ View onboarding tutorial  
+→ Enter home screen  
+
+---
+
+## 7.2 Buy Existing Practice Program Flow
+
+Open app  
+→ Go to Practice Library  
+→ Browse free and paid programs  
+→ Select a program  
+→ View program details  
+→ Preview short demo  
+→ Pay for the program  
+→ Program is added to user account  
+→ Download program to app  
+→ Start practice  
+→ Save to My List  
+
+---
+
+## 7.3 Upload Own Sheet Music Flow
+
+Open app  
+→ Go to Upload  
+→ Select PDF, JPEG, or PNG  
+→ Confirm upload cost  
+→ Pay or use credit  
+→ Upload file to server  
+→ Server stores file  
+→ Server starts OMR processing  
+→ Server generates MusicXML and MIDI  
+→ Server creates practice program  
+→ App receives completed program  
+→ Program appears in Private Library  
+→ User starts practice  
+
+---
+
+## 7.4 Practice Flow
+
+Open practice program  
+→ App shows first short section  
+→ App plays the section automatically  
+→ Virtual keyboard highlights the notes  
+→ Virtual hand shows suggested fingers  
+→ User practises the same section  
+→ App listens through microphone  
+→ App detects notes and timing  
+→ If correct, user moves to next section  
+→ If wrong, app highlights the mistake and repeats the section  
+→ User completes all sections  
+→ App shows score and progress summary  
+
+---
+
+# 8. Pages and Screens
+
+## 8.1 Authentication Screens
+
+- Welcome screen
+- Register screen
+- Login screen
+- Email verification screen
+- Forgot password screen
+
+---
+
+## 8.2 Home Screen
+
+The home screen should show:
+
+- Continue practising
+- Recommended programs
+- Recently added programs
+- User uploaded programs
+- Featured paid courses
+
+---
+
+## 8.3 Practice Library Screen
+
+The Practice Library contains Fingora’s native practice programs.
 
 Features:
 
-* Measure highlighting
-* Current note indication
-* Auto scrolling
+- Browse programs
+- Search programs
+- Filter by difficulty
+- Filter by style
+- Filter by free or paid
+- View program details
+- Purchase program
+- Download program
+- Add to My List
 
 ---
 
-## Piano Keyboard View
+## 8.4 Program Detail Screen
+
+Displays:
+
+- Program title
+- Description
+- Difficulty level
+- Number of lessons
+- Estimated practice time
+- Preview video or audio
+- Price
+- Purchase button
+- Add to My List button
+
+---
+
+## 8.5 Upload Screen
+
+Allows users to upload their own music sheets.
 
 Features:
 
-* Full keyboard
-* Highlight active notes
-* Chord display
-* Tempo tracking
+- Select file
+- Preview file
+- Confirm upload
+- Show processing cost
+- Start upload
+- Show upload progress
+- Show processing status
 
 ---
 
-## Fingering Guidance
+## 8.6 Private Library Screen
 
-Display recommended fingers.
+Contains user-generated practice programs.
 
-### Finger Numbers
+Features:
 
-| Finger        | Number |
-| ------------- | ------ |
-| Thumb         | 1      |
-| Index         | 2      |
-| Middle        | 3      |
-| Ring          | 4      |
-| Little Finger | 5      |
-
-Supports:
-
-* Left hand
-* Right hand
+- View uploaded files
+- View generated programs
+- Open program
+- Delete program
+- Reprocess failed upload
+- Add to My List
 
 ---
 
-## Virtual Hands
+## 8.7 My List Screen
 
-### Version 1
+A personal collection of saved practice content.
 
-2D animated hands.
+Users can save:
 
-### Future Version
+- Free programs
+- Paid programs
+- Uploaded/generated programs
+- Favourite courses
+- Continue-learning items
 
-3D animated hands.
+Features:
 
-Functions:
-
-* Hand position guidance
-* Finger movement animation
-
----
-
-## Audio Validation
-
-### Technology
-
-AVFoundation
-
-### Features
-
-* Detect played notes
-* Detect wrong notes
-* Detect missed notes
-* Detect timing errors
-
-### Output
-
-* Accuracy score
-* Error report
-* Practice summary
+- Open saved item
+- Remove saved item
+- View progress
+- Continue from last practice position
 
 ---
 
-# 10. Progress Tracking
+## 8.8 Practice Player Screen
 
-Store:
+This is the core screen of the app.
 
-* Practice time
-* Completed lessons
-* Accuracy score
-* Best score
-* Last played date
+The screen should include:
 
-Display:
-
-* Daily progress
-* Weekly progress
-* Learning streak
-
----
-
-# 11. Non-Functional Requirements
-
-## Performance
-
-### PDF Processing
-
-Target:
-
-* Less than 60 seconds
-
-### Lesson Loading
-
-Target:
-
-* Less than 3 seconds
+- Sheet music viewer
+- Current measure highlight
+- Current note highlight
+- Virtual piano keyboard
+- Highlighted active keys
+- Fingering numbers
+- Virtual hand or finger guide
+- Play button
+- Pause button
+- Slow mode
+- Loop section button
+- Microphone listening status
+- Correct or incorrect feedback
+- Progress bar
 
 ---
 
-## Security
+## 8.9 Progress Screen
 
-### Authentication
+Displays:
 
-AWS Cognito
-
-### Storage
-
-Private S3 buckets
-
-### Communication
-
-HTTPS only
+- Total practice time
+- Completed programs
+- Current learning streak
+- Accuracy score
+- Recent mistakes
+- Best score
+- Last practised date
 
 ---
 
-## Scalability
+## 8.10 Settings Screen
 
-Support:
+Includes:
 
-* 10,000+ users
-* 100,000+ scores
-* Cloud-based processing
-
----
-
-# 12. Technology Stack
-
-## iOS
-
-* Swift
-* SwiftUI
-* AVFoundation
-* PDFKit
-
-## Backend
-
-* AWS API Gateway
-* AWS Lambda
-* DynamoDB
-* S3
-* Cognito
-
-## OMR Service
-
-* Audiveris
-* Java
-
-## Infrastructure
-
-* AWS CDK
-* TypeScript
+- Account details
+- Payment history
+- Downloaded programs
+- Storage management
+- Microphone permission
+- Notification settings
+- Logout
 
 ---
 
-# 13. MVP Scope
+# 9. Data Models
 
-## Included
+## 9.1 User
 
-* Login
-* Public Library
-* Private Library
-* My List
-* PDF Upload
-* Credit System
-* OMR Processing
-* Piano Keyboard Practice
-* Audio Validation
-
-## Excluded
-
-* Social Features
-* Teacher Dashboard
-* AI Chat Tutor
-* Multi-Instrument Support
-* Marketplace
-
----
-
-# 14. Future Roadmap
-
-## Version 2
-
-* Advanced AI fingering generation
-* Teacher portal
-* Performance analytics
-* Cloud sync
-
-## Version 3
-
-* Guitar support
-* Violin support
-* AI practice coach
-* Community features
-* Music marketplace
-
----
-
-# 15. Success Metrics
-
-## Business Metrics
-
-* User registration rate
-* Credit purchase rate
-* PDF upload conversion rate
-* Revenue per user
-
-## Product Metrics
-
-* Daily active users
-* Weekly active users
-* Practice completion rate
-* User retention rate
-
-## Technical Metrics
-
-* OMR success rate
-* Processing time
-* App crash rate
-* API response time
+```json
+{
+  "userId": "string",
+  "email": "string",
+  "displayName": "string",
+  "createdAt": "datetime",
+  "subscriptionStatus": "free | paid",
+  "creditBalance": "number"
+}
