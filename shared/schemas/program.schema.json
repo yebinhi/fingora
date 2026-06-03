@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Program",
+  "description": "Native or user-generated practice program metadata (catalog / library)",
+  "type": "object",
+  "required": ["programId", "title", "source", "difficulty"],
+  "properties": {
+    "programId": { "type": "string" },
+    "title": { "type": "string" },
+    "description": { "type": "string" },
+    "source": { "enum": ["native", "generated"] },
+    "difficulty": { "type": "string" },
+    "lessonCount": { "type": "integer" },
+    "estimatedMinutes": { "type": "integer" },
+    "priceCents": { "type": "integer", "minimum": 0 },
+    "isFree": { "type": "boolean" },
+    "manifestUrl": { "type": "string", "format": "uri" },
+    "ownerUserId": { "type": "string", "description": "Set for generated programs" }
+  }
+}

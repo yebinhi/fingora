@@ -1,0 +1,33 @@
+# Dependencies
+node_modules/
+.swiftpm/
+.build/
+DerivedData/
+
+# AWS / CDK
+cdk.out/
+.cdk.staging/
+*.js
+!jest.config.js
+*.d.ts
+
+# Environment
+.env
+.env.*
+!.env.example
+
+# IDE / OS
+.idea/
+.vscode/
+*.xcuserstate
+*.xcworkspace/xcuserdata/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# iOS
+*.ipa
+*.dSYM.zip

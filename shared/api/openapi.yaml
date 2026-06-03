@@ -1,0 +1,72 @@
+openapi: 3.0.3
+info:
+  title: Fingora API
+  version: 0.1.0
+  description: MVP REST API for Fingora (scaffold — not implemented)
+
+servers:
+  - url: https://api.example.com/v1
+    description: Placeholder — set per environment in CDK
+
+security:
+  - bearerAuth: []
+
+paths:
+  /health:
+    get:
+      summary: Health check
+      security: []
+      responses:
+        "200":
+          description: OK
+
+  /catalog/programs:
+    get:
+      summary: List native practice programs
+      tags: [catalog]
+      responses:
+        "200":
+          description: Program list
+
+  /catalog/programs/{programId}:
+    get:
+      summary: Program detail
+      tags: [catalog]
+      parameters:
+        - name: programId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Program detail
+
+  /uploads/presign:
+    post:
+      summary: Create presigned upload URL
+      tags: [uploads]
+      responses:
+        "201":
+          description: Presigned URL and job id
+
+  /uploads/{jobId}:
+    get:
+      summary: Upload / processing job status
+      tags: [uploads]
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Job status
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "User",
+  "type": "object",
+  "required": ["userId", "email", "createdAt", "subscriptionStatus", "creditBalance"],
+  "properties": {
+    "userId": { "type": "string" },
+    "email": { "type": "string", "format": "email" },
+    "displayName": { "type": "string" },
+    "createdAt": { "type": "string", "format": "date-time" },
+    "subscriptionStatus": { "enum": ["free", "paid"] },
+    "creditBalance": { "type": "number", "minimum": 0 }
+  }
+}
